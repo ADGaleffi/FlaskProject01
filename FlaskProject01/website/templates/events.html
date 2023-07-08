@@ -1,0 +1,130 @@
+{% extends "base.html" %} {% block title %}Events{% endblock %}
+
+{% block content %}
+<html>
+    <form method="POST">
+        <head>
+            <style>
+                body
+                {
+                    background-repeat: no-repeat;
+                    background-size: 70% 45%;
+                    background-position-x: center;
+                    background-attachment: fixed;
+                    background-image: url({{url_for('static', filename='images/events2.png')}})
+                }
+    
+            </style>
+            <style>
+                div.fixed{
+                    position: fixed;
+                    bottom: 290px;
+                    right: 550px;
+                    font-size: 40px;
+
+                    }
+            </style>
+            <style>
+                div.article1{
+                    position: fixed;
+                    top: 61%;
+                    left: 16%;
+                    font-size: 20px;
+
+                    }
+            </style>
+            <style>
+                div.article2{
+                    position: fixed;
+                    top: 71%;
+                    left: 16%;
+                    font-size: 20px;
+
+                    }
+            </style>
+            <style>
+                div.article3{
+                    position: fixed;
+                    top: 81%;
+                    left: 16%;
+                    font-size: 20px;
+
+                    }
+            </style>
+
+            <style>
+                .articlebox1{
+                    position: fixed;
+                    top: 60%;
+                    left: 15%;
+                    padding: 10px;
+                    width: 966px;
+                    border: 5px solid green;
+                    }
+            </style>
+            <style>
+                .articlebox2{
+                    position: fixed;
+                    top: 70%;
+                    left: 15%;
+                    padding: 10px;
+                    width: 966px;
+                    border: 5px solid blueviolet;
+                    }
+            </style>
+            <style>
+                .articlebox3{
+                    position: fixed;
+                    top: 80%;
+                    left: 15%;
+                    padding: 10px;
+                    width: 966px;
+                    border: 5px solid rgba(255, 255, 0, 0.87);
+                    }
+            </style> 
+            <style>
+                .anybutton1{
+                    top:61%;
+                    left:86%;                    
+                    position: absolute;
+                    }
+            </style>      
+        </head>  
+        <body>             
+            <div class="fixed", style="color: black;">Upcoming Events</div>
+            <nav>
+                <input class="articlebox1" type="button" onclick="location.href='/article1'">
+                    <div class="article1">
+                         10/07 Unimi's yearly marathon along the Po river                
+                    </div>
+                    <form action="{{ url_for('views.add_reminder') }}" method='POST'>                                              
+                            <div class="anybutton1">                      
+                                <button type="submit" class="btn btn-primary" value="reminder1" name="reminder1" onclick="{{ url_for('views.add_reminder') }}">Remind Me</button>                                                  
+                            </div>
+                    </form> 
+
+                </input>
+                <input class="articlebox2" type="button" onclick="location.href='/article2'">
+                    <div class="article2">
+                    15/07 Aperitivo and Speed Dating
+                    </div>
+                <input class="articlebox3" type="button" onclick="location.href='/article3'">
+                    <div class="article3">
+                    18/07 'Bring your dog to uni' day 
+                    </div>
+                </input>
+            </nav>
+               
+
+        </body>
+
+
+
+
+
+
+ 
+    </form> 
+</html>
+
+{% endblock %}

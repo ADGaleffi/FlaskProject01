@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}Lectures{% endblock %}
+
+{% block content %}
+<html>
+    <form method="POST">
+        <head>
+            <style>
+                body
+                {
+                    background-repeat: no-repeat;
+                    background-size: 70% 45%;
+                    background-position-x: center;
+                    background-attachment: fixed;
+                    background-image: url({{url_for('static', filename='images/lectures2.png')}})
+                }
+    
+            </style>
+        </head>  
+        <body>
+            <h1 align="center", style="color: black;">Lectures</h1>  
+                  
+        </body>
+
+
+
+
+
+
+ 
+    </form> 
+</html>
+
+{% endblock %}

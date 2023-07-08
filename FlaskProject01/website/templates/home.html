@@ -1,0 +1,127 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+<html>     
+  <head>
+    <style>
+      body
+      {
+        background-repeat: no-repeat;
+        background-size: 80% 120%;
+        background-position-x: right;
+        background-attachment: fixed;
+        background-image: url({{url_for('static', filename='images/hero3v2.jpg')}})
+      }
+
+    </style>
+    <style>
+      .textevents{
+        position: relative;
+        top: 0%;
+        left: -10%;
+        padding: 0;
+        margin: 0;
+        font-size: 30px;
+      }
+    </style>
+    <style>
+      .boxevents{
+        position: relative;
+        top: 18%;
+        left: -65%;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <style>
+      .submitbutton{
+        position: relative;
+        top: 30%;
+        left: -10%;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <style>
+      .boxsubmitted{
+        position: relative;
+        top: 18%;
+        left: -65%;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <style>
+      div.remindertext{
+        position: relative;
+        top: 20%;
+        left: -10%;
+        padding: 0;
+        margin: 0;
+        font-size: 30px; 
+      }
+    </style>
+    <style>
+      div.reminderbox1{
+        position: relative;
+        top: 60%;
+        left: 0%;
+        padding: 10px;
+        width: 100px;
+        border: 5px solid green;
+      }
+    </style> 
+
+
+  </head>  
+  <body>              
+      <div class="hero-text">
+        <h1 align="center" style="color: black;">Welcome to your home page</h1>
+      </div>
+    </element>
+    <div class="textevents" align="left">Your Notes</div>
+    <ul class="list-group list-group-flush" id="notes">
+      <div class="col-xs-2">
+      {% for note in user.notes %}
+      <li class="list-group-item">
+        {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      </div>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      <div class="form-group-row">
+        <div class="col-xs-2">
+          <div class="boxevents">
+            <textarea name="note" id="note" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>  
+      <br />
+      <div align="left">
+        <div class="submitbutton">
+          <button type="submit" class="btn btn-primary">Add Note</button>
+        </div>
+      </div>
+    </form> 
+    <div class="remindertext">Your Events</div>
+    
+    {% if remindOnHomePage == True %}
+      <div class="reminderbox1">15/07 Marathon</div>
+      <h2>Marathon</h2>
+      {% else %}
+      {{ super() }}
+    {% endif %}  
+    
+       
+
+   
+
+
+  </body>
+    
+
+</html>
+{% endblock %}
